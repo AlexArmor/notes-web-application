@@ -31,6 +31,7 @@ export function NoteFormModal({ modalHandler }) {
         };
         createNote(note);
         event.target.reset();
+        modalHandler(false);
     }
     return (
         <div className='backdrop' onClick={handleBackdrop}>
