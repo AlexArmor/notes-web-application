@@ -30,13 +30,28 @@ export const createNote = async (note) => {
     };
     return await fetch("https://quintadb.com/apps/ddNcdcRMvcTQLgdqFcSLWp/dtypes.json?rest_api_key=cVwmknWO9cR6WSBmkayv5W", options)
         .then(response => response.json())
-        .then(post => console.log(post))
+        // .then(post => console.log(post))
         .catch(error => console.log(error));
 };
 
 export const getNotes = async () => {
-    return await fetch("https://quintadb.com/apps/ddNcdcRMvcTQLgdqFcSLWp/dtypes/entity/dcH0HMWQ1eAA_cJ2uyW4Cp.json?rest_api_key=cVwmknWO9cR6WSBmkayv5W&amp;view=")
+    return await fetch("https://quintadb.com/apps/ddNcdcRMvcTQLgdqFcSLWp/dtypes/entity/dcH0HMWQ1eAA_cJ2uyW4Cp.json?rest_api_key=cVwmknWO9cR6WSBmkayv5W&amp;per_page=200")
         .then(response => response.json())
         .then(data => data.records)
+        .catch(error => console.log(error));
+};
+
+export const getNoteById = async (id) => {
+    // const data = { "rest_api_key": "cVwmknWO9cR6WSBmkayv5W", "id": `${id}` };
+    // const options = {
+    //     method: 'GET',
+    //     body: JSON.stringify(data),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    // };
+    return await fetch(`https://quintadb.com/apps/ddNcdcRMvcTQLgdqFcSLWp/dtypes/${id}.json?rest_api_key=cVwmknWO9cR6WSBmkayv5W`)
+        .then(response => response.json())
+        .then(data => data.record)
         .catch(error => console.log(error));
 };

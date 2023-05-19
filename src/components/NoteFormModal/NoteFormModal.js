@@ -1,7 +1,7 @@
-import { createNote } from '../../services/api';
+// import { createNote } from '../../services/api';
 import { useEffect } from 'react';
 
-export function NoteFormModal({ modalHandler }) {
+export function NoteFormModal({ modalHandler, formSubmit }) {
 
     useEffect(() => {
         const handleKeyDown = e => {
@@ -29,7 +29,7 @@ export function NoteFormModal({ modalHandler }) {
             title,
             text,
         };
-        createNote(note);
+        formSubmit(note);
         event.target.reset();
         modalHandler(false);
     }

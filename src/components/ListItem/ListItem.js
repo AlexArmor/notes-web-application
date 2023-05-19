@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getNotes } from '../../services/api';
+// import { getNotes } from '../../services/api';
 // import items from '../../data.json';
 
-export function ListItem() {
-    const [notes, setNotes] = useState([]);
-    useEffect(() => {
-        getNotes().then((data) => {
-            setNotes(data)
-            console.log(data);
-        })
+export function ListItem({ notes }) {
+    // const [notes, setNotes] = useState([]);
+    // useEffect(() => {
+    //     getNotes().then((data) => {
+    //         setNotes(data)
+    //         console.log(data);
+    //     })
 
-    }, [])
+    // }, [])
     return (
         <>
             {(notes.length > 0) ?

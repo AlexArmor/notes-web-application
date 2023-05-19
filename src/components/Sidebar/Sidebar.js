@@ -1,9 +1,9 @@
 import { ListItem } from '../ListItem/ListItem'
 
-export function Sidebar() {
+export function Sidebar({ notes }) {
     return (
         <div className="sidebar">
-            <ListItem />
+            <ListItem notes={notes} />
         </div>
     )
 }
